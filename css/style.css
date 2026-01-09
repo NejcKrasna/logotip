@@ -4,9 +4,9 @@
 	transition: 0.5s;
 }
 :root{
-	--main-color:white;
-	--secondary-color:black;
-	--tretja-color:white;
+	--main-color:#ffffff;
+	--secondary-color:#000000;
+	--tretja-color:#ffffff;
 	--cetrta-color:#cecece;
 }
 a{
@@ -48,8 +48,7 @@ html,body{
 }
 .gumbLogo{
 	margin:0;
-	width: 95px;
-	display: inline-block;
+	width: 70px;
 }
 .crta{
 	width: 130px;
@@ -142,9 +141,15 @@ html,body{
 	height:380px;
 	width:380px;
 }
+#ImageCANh{
+	height:50px;
+	width:50px;
+}
 #changeLogo{
 	height:40px;
 	width:300px;
+    display: flex;
+    justify-content: space-evenly;
 }
 #google,#apple,#iamgrok{
 	position:relative;
@@ -274,10 +279,26 @@ html,body{
 #policy a:hover,#foot a:hover{
 	text-decoration:underline
 }
-#ImagePNG,#ImageCAN{
+#ImagePNG,#ImageCAN,#ImagePNGh,#ImageCANh{
 	display:none;
 }
-
+#ImageSVG,#ImageSVGh{
+	fill:var(--secondary-color);
+}
+#logoCOL{
+	overflow: clip;
+    position: relative;
+}
+#colInp{
+	width: 111%;
+    height: 130%;
+    position: absolute;
+    top: -6px;
+    left: -4px;
+}
+#logoCOL{
+	display:none;
+}
 @media screen and (max-width: 1300px) {
 	
 .leftside{
@@ -322,12 +343,12 @@ html,body{
 }
 @media (prefers-color-scheme: dark) {
 	:root{
-		--main-color:black;
-		--secondary-color:white;
+		--main-color:#000000;
+		--secondary-color:#FFFFFF;
 		--tretja-color:#1c1c1c;
-		--cetrta-color:white;
+		--cetrta-color:#FFFFFF;
 	}
-    .xLogo{
+    .xLogo:not(#ImageSVG,#ImageSVGh,#ImageCAN,#ImageCANh){
 		filter: invert(100%);
 	}
 	.invert{
