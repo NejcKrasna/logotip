@@ -13,9 +13,14 @@ var black_overlay_div = document.getElementById("black_overlay");
 var logoPNG = document.getElementById("logoPNG");
 var logoSVG = document.getElementById("logoSVG");
 var logoCAN = document.getElementById("logoCAN");
+var logoCOL = document.getElementById("logoCOL");
 var ImagePNG = document.getElementById("ImagePNG");
 var ImageSVG = document.getElementById("ImageSVG");
 var ImageCAN = document.getElementById("ImageCAN");
+var ImagePNGh = document.getElementById("ImagePNGh");
+var ImageSVGh = document.getElementById("ImageSVGh");
+var ImageCANh = document.getElementById("ImageCANh");
+var inputColor = document.getElementById("colInp");
 
 closesignup1x.addEventListener("click", closesignup1);
 closesignup2x.addEventListener("click", closesignup2);
@@ -28,6 +33,8 @@ login_gumbek.addEventListener("click", login);
 logoPNG.addEventListener("click", showPNG);
 logoSVG.addEventListener("click", showSVG);
 logoCAN.addEventListener("click", drawCanvas);
+inputColor.addEventListener("input", updateColor);
+window.addEventListener("load", setColor);
 
 function CreateAccount(){
 	signup_div.style.display = "block";
@@ -198,25 +205,70 @@ function showPNG(){
 	ImagePNG.style.display = "block";
 	ImageSVG.style.display = "none";
 	ImageCAN.style.display = "none";
+	ImagePNGh.style.display = "block";
+	ImageSVGh.style.display = "none";
+	ImageCANh.style.display = "none";
+	logoCOL.style.display = "none";
 }
 
 function showSVG(){
 	ImagePNG.style.display = "none";
 	ImageSVG.style.display = "block";
 	ImageCAN.style.display = "none";
+	ImagePNGh.style.display = "none";
+	ImageSVGh.style.display = "block";
+	ImageCANh.style.display = "none";
+	logoCOL.style.display = "block";
 }
 
 function drawCanvas(){
-	var c = document.getElementById("ImageCAN");
-	var ctx = c.getContext("2d");
-	ctx.save();
-ctx.strokeStyle="rgba(0,0,0,0)";
+var c = document.getElementById("ImageCAN");
+var ctx = c.getContext("2d");
+ctx.save();
+ctx.strokeStyle=inputColor.value;
 ctx.miterLimit=4;
 ctx.font="15px ''";
 ctx.font="   15px ''";
 ctx.scale(0.79,0.395);
 ctx.save();
-ctx.fillStyle="currentcolor";
+ctx.fillStyle=inputColor.value;
+ctx.font="   15px ''";
+ctx.beginPath();
+ctx.moveTo(2,0);
+ctx.lineTo(122,0);
+ctx.lineTo(106,31);
+ctx.lineTo(60,31);
+ctx.lineTo(274,348);
+ctx.lineTo(321,348);
+ctx.lineTo(106,31);
+ctx.lineTo(122,0);
+ctx.lineTo(210,130);
+ctx.lineTo(320,0);
+ctx.lineTo(368,0);
+ctx.lineTo(231,161);
+ctx.lineTo(378,378);
+ctx.lineTo(258,378);
+ctx.lineTo(165,241);
+ctx.lineTo(48,378);
+ctx.lineTo(0,378);
+ctx.lineTo(144,209);
+ctx.lineTo(2,0);
+ctx.closePath();
+ctx.fill();
+ctx.stroke();
+ctx.restore();
+ctx.restore();
+
+c = document.getElementById("ImageCANh");
+ctx = c.getContext("2d");
+ctx.save();
+ctx.strokeStyle=inputColor.value;
+ctx.miterLimit=4;
+ctx.font="15px ''";
+ctx.font="   15px ''";
+ctx.scale(0.79,0.395);
+ctx.save();
+ctx.fillStyle=inputColor.value;
 ctx.font="   15px ''";
 ctx.beginPath();
 ctx.moveTo(2,0);
@@ -244,7 +296,95 @@ ctx.stroke();
 ctx.restore();
 ctx.restore();
 	
-	ImagePNG.style.display = "none";
-	ImageSVG.style.display = "none";
-	ImageCAN.style.display = "block";
+ImagePNG.style.display = "none";
+ImageSVG.style.display = "none";
+ImageCAN.style.display = "block";
+ImagePNGh.style.display = "none";
+ImageSVGh.style.display = "none";
+ImageCANh.style.display = "block";
+logoCOL.style.display = "block";
+}
+
+function setColor(){
+	console.log(getComputedStyle(document.body).getPropertyValue('--secondary-color'));
+	inputColor.value=getComputedStyle(document.body).getPropertyValue('--secondary-color');
+}
+function updateColor(){
+	ImageSVG.style.fill = inputColor.value;
+	ImageSVGh.style.fill = inputColor.value;
+	
+	var c = document.getElementById("ImageCAN");
+var ctx = c.getContext("2d");
+ctx.save();
+ctx.strokeStyle=inputColor.value;
+ctx.miterLimit=4;
+ctx.font="15px ''";
+ctx.font="   15px ''";
+ctx.scale(0.79,0.395);
+ctx.save();
+ctx.fillStyle=inputColor.value;
+ctx.font="   15px ''";
+ctx.beginPath();
+ctx.moveTo(2,0);
+ctx.lineTo(122,0);
+ctx.lineTo(106,31);
+ctx.lineTo(60,31);
+ctx.lineTo(274,348);
+ctx.lineTo(321,348);
+ctx.lineTo(106,31);
+ctx.lineTo(122,0);
+ctx.lineTo(210,130);
+ctx.lineTo(320,0);
+ctx.lineTo(368,0);
+ctx.lineTo(231,161);
+ctx.lineTo(378,378);
+ctx.lineTo(258,378);
+ctx.lineTo(165,241);
+ctx.lineTo(48,378);
+ctx.lineTo(0,378);
+ctx.lineTo(144,209);
+ctx.lineTo(2,0);
+ctx.closePath();
+ctx.fill();
+ctx.stroke();
+ctx.restore();
+ctx.restore();
+
+c = document.getElementById("ImageCANh");
+ctx = c.getContext("2d");
+ctx.save();
+ctx.strokeStyle=inputColor.value;
+ctx.miterLimit=4;
+ctx.font="15px ''";
+ctx.font="   15px ''";
+ctx.scale(0.79,0.395);
+ctx.save();
+ctx.fillStyle=inputColor.value;
+ctx.font="   15px ''";
+ctx.beginPath();
+ctx.moveTo(2,0);
+ctx.lineTo(122,0);
+ctx.lineTo(106,31);
+ctx.lineTo(60,31);
+ctx.lineTo(274,348);
+ctx.lineTo(321,348);
+ctx.lineTo(106,31);
+ctx.lineTo(122,0);
+ctx.lineTo(210,130);
+ctx.lineTo(320,0);
+ctx.lineTo(368,0);
+ctx.lineTo(231,161);
+ctx.lineTo(378,378);
+ctx.lineTo(258,378);
+ctx.lineTo(165,241);
+ctx.lineTo(48,378);
+ctx.lineTo(0,378);
+ctx.lineTo(144,209);
+ctx.lineTo(2,0);
+ctx.closePath();
+ctx.fill();
+ctx.stroke();
+ctx.restore();
+ctx.restore();
+	
 }
